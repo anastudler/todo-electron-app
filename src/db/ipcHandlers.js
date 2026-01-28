@@ -7,8 +7,8 @@ export default function setUpHandlers(db) {
     ipcMain.handle('tasks:delete', (_, id) => {
         db.deleteTask(id);
     })
-    ipcMain.handle('tasks:markComplete', (_, params) => {
-        db.markCompleted(params);
+    ipcMain.handle('tasks:markCompleted', (_, params) => {
+        db.markCompleted(params.id, params.completed);
     })
     ipcMain.handle('tasks:getAll', () => {
         return db.getAllTasks();
